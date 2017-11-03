@@ -159,9 +159,9 @@ public class Lab4_RicardoRomero_AlbertoMartinez {
 
             if (opn.equals("b")) {
                 listar();
-                if (!inventario.isEmpty()){
-                eliminar();
-                }else{
+                if (!inventario.isEmpty()) {
+                    eliminar();
+                } else {
                     JOptionPane.showMessageDialog(null, "No hay guerreros en el inventario!");
                 }
             }
@@ -208,7 +208,16 @@ public class Lab4_RicardoRomero_AlbertoMartinez {
             }
 
             if (opn.equals("d")) {
-
+                String p = "";
+                for (Object t : jugadores) {
+                    if (t instanceof Jugador) {
+                        p += jugadores.indexOf(t) + "" + "-" + t + "\n"
+                                + "Dinero: " + ((Jugador) t).getDinero() + "\n"
+                                + "Puntos: " + ((Jugador) t).getPuntos() + "\n"
+                                + "Guerrero: " + ((Jugador) t).getGuerrero() + "\n";
+                    }
+                    JOptionPane.showMessageDialog(null, p);
+                }
             }
 
             if (opn.equals("e")) {
