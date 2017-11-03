@@ -45,9 +45,11 @@ public class Arquero extends Guerreros{
         
     }
 
-    @Override
-    public void ataque() {
+    public Guerreros ataque(Guerreros g2) {
+        g2.setSalud(g2.getSalud()-poder_ataque);
+        salud=salud+10;
         
+        return g2;
     }
     
 }

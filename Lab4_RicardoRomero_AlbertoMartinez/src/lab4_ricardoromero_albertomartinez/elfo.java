@@ -39,13 +39,10 @@ public class elfo extends Guerreros{
         this.rango_militar = rango_militar;
     }
 
-    @Override
-    public String toString() {
-        return "elfo{" + "tipo_arma=" + tipo_arma + ", rango_militar=" + rango_militar + '}';
-    }
 
     @Override
-    public void ataque() {
-        
+    public Guerreros ataque(Guerreros g2) {
+        g2.setSalud(g2.getSalud()-poder_ataque);
+        return g2;
     }
 }

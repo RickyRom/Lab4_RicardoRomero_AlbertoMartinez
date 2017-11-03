@@ -10,17 +10,17 @@ package lab4_ricardoromero_albertomartinez;
  * @author ricky
  */
 public abstract class Guerreros {
-    private String nombre;
-    private int edad;
-    private String lugar_naci;
-    private int poder_ataque;
-    private int salud;
-    private int costo;
+    public String nombre;
+    public int edad;
+    public String lugar_naci;
+    public double poder_ataque;
+    public double salud;
+    public double costo;
 
     public Guerreros() {
     }
 
-    public Guerreros(String nombre, int edad, String lugar_naci, int poder_ataque, int salud, int costo) {
+    public Guerreros(String nombre, int edad, String lugar_naci, double poder_ataque, double salud, double costo) {
         this.nombre = nombre;
         this.edad = edad;
         this.lugar_naci = lugar_naci;
@@ -53,33 +53,33 @@ public abstract class Guerreros {
         this.lugar_naci = lugar_naci;
     }
 
-    public int getPoder_ataque() {
+    public double getPoder_ataque() {
         return poder_ataque;
     }
 
-    public void setPoder_ataque(int poder_ataque) {
+    public void setPoder_ataque(double poder_ataque) {
         this.poder_ataque = poder_ataque;
         if (poder_ataque < 50) {
             this.poder_ataque = poder_ataque;
         }
     }
 
-    public int getSalud() {
+    public double getSalud() {
         return salud;
     }
 
-    public void setSalud(int salud) {
+    public void setSalud(double salud) {
         this.salud = salud;
         if (salud > 100 && salud < 200) {
             this.salud = salud;
         }
     }
 
-    public int getCosto() {
+    public double getCosto() {
         return costo;
     }
 
-    public void setCosto(int costo) {
+    public void setCosto(double costo) {
         this.costo = costo;
         if (costo < 300) {
             this.costo = costo;
@@ -91,5 +91,5 @@ public abstract class Guerreros {
         return nombre;
     }
     
-    public abstract void ataque();
+    public abstract Guerreros ataque(Guerreros g2);
 }

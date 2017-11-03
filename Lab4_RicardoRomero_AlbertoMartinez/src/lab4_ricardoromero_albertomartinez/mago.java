@@ -39,13 +39,14 @@ public class mago extends Guerreros{
         this.elemento_favorito = elemento_favorito;
     }
 
-    @Override
-    public String toString() {
-        return "mago{" + "tipo_magia=" + tipo_magia + ", elemento_favorito=" + elemento_favorito + '}';
-    }
 
     @Override
-    public void ataque() {
+    public Guerreros ataque(Guerreros g2) {
+        double mitad=0;
+        mitad=g2.getPoder_ataque()/2;
         
+        g2.setSalud(g2.getSalud()-(poder_ataque+mitad));
+        
+        return g2;
     }
 }

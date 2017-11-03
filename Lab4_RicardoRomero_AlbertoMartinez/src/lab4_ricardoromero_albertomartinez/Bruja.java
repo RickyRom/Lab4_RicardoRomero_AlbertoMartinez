@@ -45,7 +45,10 @@ public class Bruja extends Guerreros{
 }
 
     @Override
-    public void ataque() {
+    public Guerreros ataque(Guerreros g2) {
+        g2.setSalud(g2.getSalud()-g2.getPoder_ataque());
+        g2.setPoder_ataque(g2.getPoder_ataque()+50);
         
+        return g2;
     }
 }

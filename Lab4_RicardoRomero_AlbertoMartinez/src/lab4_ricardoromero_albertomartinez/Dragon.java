@@ -45,9 +45,11 @@ public class Dragon extends Guerreros{
         
     }
 
-    @Override
-    public void ataque() {
-        
-    }
     
+    public Guerreros ataque(Guerreros g2) {
+        g2.setSalud(g2.getSalud()-poder_ataque);
+        g2.setPoder_ataque(g2.getPoder_ataque()*0.75);
+        return g2;
+    }
+
 }
