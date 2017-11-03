@@ -24,9 +24,9 @@ public class Guerreros {
         this.nombre = nombre;
         this.edad = edad;
         this.lugar_naci = lugar_naci;
-        this.poder_ataque = poder_ataque;
-        this.salud = salud;
-        this.costo = costo;
+        setPoder_ataque(poder_ataque);
+        setSalud(salud);
+        setCosto(costo);
     }
 
     public String getNombre() {
@@ -59,6 +59,9 @@ public class Guerreros {
 
     public void setPoder_ataque(int poder_ataque) {
         this.poder_ataque = poder_ataque;
+        if (poder_ataque < 50) {
+            this.poder_ataque = poder_ataque;
+        }
     }
 
     public int getSalud() {
@@ -67,6 +70,9 @@ public class Guerreros {
 
     public void setSalud(int salud) {
         this.salud = salud;
+        if (salud > 100 && salud < 200) {
+            this.salud = salud;
+        }
     }
 
     public int getCosto() {
@@ -75,6 +81,9 @@ public class Guerreros {
 
     public void setCosto(int costo) {
         this.costo = costo;
+        if (costo < 300) {
+            this.costo = costo;
+        }
     }
 
     @Override
