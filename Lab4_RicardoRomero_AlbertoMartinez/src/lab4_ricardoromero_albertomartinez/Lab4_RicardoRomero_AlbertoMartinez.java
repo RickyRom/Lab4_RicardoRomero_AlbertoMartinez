@@ -159,7 +159,11 @@ public class Lab4_RicardoRomero_AlbertoMartinez {
 
             if (opn.equals("b")) {
                 listar();
+                if (!inventario.isEmpty()){
                 eliminar();
+                }else{
+                    JOptionPane.showMessageDialog(null, "No hay guerreros en el inventario!");
+                }
             }
 
             if (opn.equals("c")) {
