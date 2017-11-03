@@ -209,21 +209,69 @@ public class Lab4_RicardoRomero_AlbertoMartinez {
 
             if (opn.equals("d")) {
                 int num = 0;
-                String p = "";
+                //String p = "";
+                String p = "Escoja al jugador 1" + "\n";
+                String s = "";
+                int pos1, pos2, cont = 2, win = 0;
                 for (Object t : jugadores) {
                     if (t instanceof Jugador) {
                         p += jugadores.indexOf(t) + "" + "-" + t + "\n"
                                 + "Dinero: " + ((Jugador) t).getDinero() + "\n"
                                 + "Puntos: " + ((Jugador) t).getPuntos() + "\n"
-                                + "Guerrero: " + ((Jugador) t).getGuerrero() + "\n";
+                                + "Guerrero: " + ((Jugador) t).getGuerrero() + " Salud: " + ((Jugador) t).getGuerrero().getSalud() + " Poder de ataque: " + ((Jugador) t).getGuerrero().getPoder_ataque() + "\n";
                     }
-                    JOptionPane.showMessageDialog(null, p);
+
                 }
-                
-                if (num == 1) {
-                    JOptionPane.showMessageDialog(null, "Ha Ganado el Jugador 1 ");
-                }else {
-                    JOptionPane.showMessageDialog(null, "Ha Ganado el Jugador 2 ");
+                pos1 = Integer.parseInt(JOptionPane.showInputDialog(p));
+
+                p = "Escoja al jugador 2" + "\n";
+
+                for (Object t : jugadores) {
+                    if (t instanceof Jugador) {
+                        p += jugadores.indexOf(t) + "" + "-" + t + "\n"
+                                + "Dinero: " + ((Jugador) t).getDinero() + "\n"
+                                + "Puntos: " + ((Jugador) t).getPuntos() + "\n"
+                                + "Guerrero: " + ((Jugador) t).getGuerrero() + " Salud: " + ((Jugador) t).getGuerrero().getSalud() + " Poder de ataque: " + ((Jugador) t).getGuerrero().getPoder_ataque() + "\n";
+                    }
+
+                }
+                pos2 = Integer.parseInt(JOptionPane.showInputDialog(p));
+                do {
+                    if (cont % 2 == 0) {
+                        s = "Guerrero del jugador 1: " + ((Jugador) jugadores.get(pos1)).getGuerrero() + " Salud: " + ((Jugador) jugadores.get(pos1)).getGuerrero().getSalud() + " Poder de ataque: " + ((Jugador) jugadores.get(pos1)).getGuerrero().getPoder_ataque() + "\n"
+                                + "Guerrero del jugador 2: " + ((Jugador) jugadores.get(pos2)).getGuerrero() + " Salud: " + ((Jugador) jugadores.get(pos2)).getGuerrero().getSalud() + " Poder de ataque: " + ((Jugador) jugadores.get(pos2)).getGuerrero().getPoder_ataque() + "\n"
+                                + "ATACAR";
+
+                        JOptionPane.showMessageDialog(null, s);
+                        jugadores.get(pos2).setGuerrero(jugadores.get(pos1).getGuerrero().ataque(jugadores.get(pos2).getGuerrero()));
+                        JOptionPane.showMessageDialog(null, "Termino tu turno!");
+                        if (jugadores.get(pos2).getGuerrero().getSalud() <= 0) {
+                            win = 1;
+                        }
+                        cont++;
+
+                    } else {
+                        s = "Guerrero del jugador 1: " + ((Jugador) jugadores.get(pos1)).getGuerrero() + " Salud: " + ((Jugador) jugadores.get(pos1)).getGuerrero().getSalud() + " Poder de ataque: " + ((Jugador) jugadores.get(pos1)).getGuerrero().getPoder_ataque() + "\n"
+                                + "Guerrero del jugador 2: " + ((Jugador) jugadores.get(pos2)).getGuerrero() + " Salud: " + ((Jugador) jugadores.get(pos2)).getGuerrero().getSalud() + " Poder de ataque: " + ((Jugador) jugadores.get(pos2)).getGuerrero().getPoder_ataque() + "\n"
+                                + "ATACAR";
+
+                        JOptionPane.showMessageDialog(null, s);
+                        jugadores.get(pos1).setGuerrero(jugadores.get(pos2).getGuerrero().ataque(jugadores.get(pos1).getGuerrero()));
+                        JOptionPane.showMessageDialog(null, "Termino tu turno!");
+                        if (jugadores.get(pos1).getGuerrero().getSalud() <= 0) {
+                            win = 2;
+                        }
+                        cont++;
+                    }
+                } while (win == 0);
+                if (win == 1) {
+                    JOptionPane.showMessageDialog(null, "Ganaste " + jugadores.get(pos1));
+                    jugadores.get(pos1).setPuntos(jugadores.get(pos1).getPuntos() + 3);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ganaste " + jugadores.get(pos2));
+                    jugadores.get(pos1).setPuntos(jugadores.get(pos2).getPuntos() + 3);
+
                 }
             }
 
@@ -251,7 +299,7 @@ public class Lab4_RicardoRomero_AlbertoMartinez {
             if (t instanceof Guerreros) {
                 p += inventario.indexOf(t) + "" + "-" + t + "\n";
             }
-            JOptionPane.showMessageDialog(null, p);
         }
+        JOptionPane.showMessageDialog(null, p);
     }
 }
