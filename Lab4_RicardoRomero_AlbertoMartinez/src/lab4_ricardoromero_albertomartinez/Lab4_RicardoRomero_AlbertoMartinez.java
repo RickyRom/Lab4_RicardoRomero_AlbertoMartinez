@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 public class Lab4_RicardoRomero_AlbertoMartinez {
 
     static ArrayList<Guerreros> inventario = new ArrayList();
+    static ArrayList<Jugador>jugadores=new ArrayList();
 
     /**
      * @param args the command line arguments
@@ -162,6 +163,44 @@ public class Lab4_RicardoRomero_AlbertoMartinez {
             }
 
             if (opn.equals("c")) {
+                int val;
+                do{
+                    val=0;
+                    String nombre;
+                    double dinero;
+                    Guerreros g;
+                    int pos;
+
+                    nombre = JOptionPane.showInputDialog("Ingrese Nombre: ");
+                    dinero = Double.parseDouble(JOptionPane.showInputDialog("Ingrese cantidad de dinero disponible: "));
+                    
+                    if (inventario.isEmpty()){
+                        JOptionPane.showMessageDialog(null, "No hay guerreros en el inventario!");
+                        val=0;
+                    }else{
+                        String s="Eliga el numero del Guerrero que desea comprar\n";
+                        for (Object t : inventario) {
+                            if (t instanceof Guerreros) {
+                               s+= ""+inventario.indexOf(t)+"- "+t+" Costo: "+((Guerreros) t).getCosto()+"\n" ;
+                            }
+                        }
+                        pos=Integer.parseInt(JOptionPane.showInputDialog(s));
+                        
+                        if(dinero<inventario.get(pos).getCosto()){
+                            val=1;
+                            JOptionPane.showMessageDialog(null, "No tiene el suficiente dinero! vuelva a intentar");
+                        }else{
+                            
+                            dinero=dinero-inventario.get(pos).getCosto();
+                            JOptionPane.showMessageDialog(null, "Ha comprado su guerrero con exito!");
+                            jugadores.add(new Jugador(nombre, dinero, inventario.get(pos)));
+                            inventario.remove(pos);
+                            JOptionPane.showMessageDialog(null, "Jugador creado con exito!");
+                        }
+                    }
+                    
+                
+                }while(val==1);
 
             }
 
