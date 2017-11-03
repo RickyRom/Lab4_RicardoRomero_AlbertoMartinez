@@ -43,4 +43,9 @@ public class mago extends Guerreros{
     public String toString() {
         return "mago{" + "tipo_magia=" + tipo_magia + ", elemento_favorito=" + elemento_favorito + '}';
     }
+
+    @Override
+    public void ataque() {
+        
+    }
 }

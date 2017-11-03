@@ -9,7 +9,7 @@ package lab4_ricardoromero_albertomartinez;
  *
  * @author ricky
  */
-public class Guerreros {
+public abstract class Guerreros {
     private String nombre;
     private int edad;
     private String lugar_naci;
@@ -90,4 +90,6 @@ public class Guerreros {
     public String toString() {
         return nombre;
     }
+    
+    public abstract void ataque();
 }
