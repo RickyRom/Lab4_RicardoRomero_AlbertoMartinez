@@ -208,6 +208,7 @@ public class Lab4_RicardoRomero_AlbertoMartinez {
             }
 
             if (opn.equals("d")) {
+                int num = 0;
                 String p = "";
                 for (Object t : jugadores) {
                     if (t instanceof Jugador) {
@@ -217,6 +218,12 @@ public class Lab4_RicardoRomero_AlbertoMartinez {
                                 + "Guerrero: " + ((Jugador) t).getGuerrero() + "\n";
                     }
                     JOptionPane.showMessageDialog(null, p);
+                }
+                
+                if (num == 1) {
+                    JOptionPane.showMessageDialog(null, "Ha Ganado el Jugador 1 ");
+                }else {
+                    JOptionPane.showMessageDialog(null, "Ha Ganado el Jugador 2 ");
                 }
             }
 
