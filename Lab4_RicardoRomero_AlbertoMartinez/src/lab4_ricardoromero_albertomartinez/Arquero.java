@@ -15,6 +15,7 @@ public class Arquero extends Guerreros{
     
 
     public Arquero() {
+        super();
     }
 
     public Arquero(String arco, String armadura, String nombre, int edad, String lugar_naci, int poder_ataque, int salud, int costo) {
@@ -41,6 +42,11 @@ public class Arquero extends Guerreros{
 
     
     public void atacar(){
+        
+    }
+
+    @Override
+    public void ataque() {
         
     }
     

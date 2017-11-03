@@ -14,6 +14,7 @@ public class Bruja extends Guerreros{
     public String lugar;
 
     public Bruja() {
+        super();
     }
 
     public Bruja(String siglo, String lugar, String nombre, int edad, String lugar_naci, int poder_ataque, int salud, int costo) {
@@ -42,4 +43,9 @@ public class Bruja extends Guerreros{
     public void atacar(){
             
 }
+
+    @Override
+    public void ataque() {
+        
+    }
 }

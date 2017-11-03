@@ -14,6 +14,7 @@ public class Dragon extends Guerreros{
     public String raza;
 
     public Dragon() {
+        super();
     }
 
     public Dragon(String color, String raza, String nombre, int edad, String lugar_naci, int poder_ataque, int salud, int costo) {
@@ -41,6 +42,11 @@ public class Dragon extends Guerreros{
     }
     
     public void atacar(){
+        
+    }
+
+    @Override
+    public void ataque() {
         
     }
     

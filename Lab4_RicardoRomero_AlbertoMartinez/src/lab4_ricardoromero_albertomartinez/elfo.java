@@ -43,4 +43,9 @@ public class elfo extends Guerreros{
     public String toString() {
         return "elfo{" + "tipo_arma=" + tipo_arma + ", rango_militar=" + rango_militar + '}';
     }
+
+    @Override
+    public void ataque() {
+        
+    }
 }
